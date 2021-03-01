@@ -16,4 +16,4 @@ Then, when prompted, type the following to read the file:
 example.txt
 ```
 
-After, you should see the results print out.
+You  will see the results print out in console.
