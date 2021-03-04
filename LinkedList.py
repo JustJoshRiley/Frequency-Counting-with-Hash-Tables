@@ -12,7 +12,7 @@ class LinkedList:
         self.head = new_node
 
 
-    def find(self,item):
+    def find(self,key):
 
         current = self.head
 
@@ -21,25 +21,28 @@ class LinkedList:
 
         while current != None and not found:
 
-        if current.data == item:
-            found = True
-        else:
-            current = current.next
-            counter += 1
+            if current.data[0] == key:
+                found = True
+            else:
+                current = current.next
 
         if found:
-        return counter
+        # key : 'taught', value:  1
+        # chang e the value, we are storing the value 
+
+            new_tuple = (key, current.data[1] + 1)
+            current.data = new_tuple
         else:
-        return -1
+            return -1
 
 
 
     def length(self):
         if self.head == None:
-        return 0
+            return 0
         else:
-        counter = 1
-        current = self.head
+            counter = 1
+            current = self.head
         while(current.next):
             current = current.next
             counter +=1
@@ -50,8 +53,8 @@ class LinkedList:
         current = self.head
         
         if current == None:
-        print('The linked list is empty.')
+            print('The linked list is empty.')
         else:
-        for i in range(self.length()):
-            print(f'Node {i}: {current.data}')
-            current = current.next
+            for i in range(self.length()):
+                print(f'{current.data[0]} : {current.data[1]}')
+                current = current.next
